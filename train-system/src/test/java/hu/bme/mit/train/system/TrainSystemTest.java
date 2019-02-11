@@ -62,5 +62,16 @@ public class TrainSystemTest {
 		controller.followSpeed();
 		Assert.assertEquals(0, controller.getReferenceSpeed());
 	}
-	
+
+
+	@Test
+	public void FollowSpeedThenCheckTheTachoGraph() {
+		user.overrideJoystickPosition(4);
+		controller.followSpeed();
+
+		boolean entryIsPresent = controller.getTachoGraph().contains(0, 4);
+
+		Assert.assertEquals(entryIsPresent, true);
+	}
+
 }
