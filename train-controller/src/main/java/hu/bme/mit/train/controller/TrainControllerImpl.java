@@ -43,6 +43,8 @@ public class TrainControllerImpl implements TrainController {
 		}
 	}
 
+
+	//branch A change
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;		
