@@ -42,7 +42,12 @@ public class TrainControllerImpl implements TrainController {
 			referenceSpeed = speedLimit;
 		}
 	}
-
+	//this
+	//is
+	//not
+	//the
+	//same
+	//comment
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;		
