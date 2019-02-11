@@ -6,6 +6,8 @@ public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
 	private int referenceSpeed = 0;
+
+	//the speed limit of the train
 	private int speedLimit = 0;
 
 	@Override
