@@ -3,6 +3,8 @@ package hu.bme.mit.train.controller;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import hu.bme.mit.train.interfaces.TrainController;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TrainControllerImpl implements TrainController {
 
@@ -11,9 +13,21 @@ public class TrainControllerImpl implements TrainController {
 
 	//the speed limit of the train
 	private int speedLimit = 0;
-
+	private Timer timer = new Timer();
 	private int time =0;
 	private Table<Integer, Integer, Integer> tachoGraph= HashBasedTable.create();
+
+	long startTime = System.currentTimeMillis();
+	long elapsedTime = 0L;
+	
+	public void startTrainController(long milliSec){
+		timer.schedule(new TimerTask() {
+  			@Override
+  			public void run() {
+  	  			followSpeed();
+  			}
+		}, milliSec);
+	}
 
 	@Override
 	public void followSpeed() {
