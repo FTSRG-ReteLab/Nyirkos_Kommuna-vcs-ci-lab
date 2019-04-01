@@ -16,16 +16,16 @@ public class TrainControllerImpl implements TrainController {
 	private int speedLimit = 0;
 
 	private int time =0;
+	private Timer timer = new Timer();
 	private Table<Integer, Integer, Integer> tachoGraph= HashBasedTable.create();
 
-	public void startTrainController(){
-		Timer timer = null;
+	public void startTrainController(int t){
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				followSpeed();
 			}
-		}, 1000);
+		}, t);
 	}
 
 
