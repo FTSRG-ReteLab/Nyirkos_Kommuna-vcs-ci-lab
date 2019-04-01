@@ -4,6 +4,9 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import hu.bme.mit.train.interfaces.TrainController;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
@@ -14,6 +17,17 @@ public class TrainControllerImpl implements TrainController {
 
 	private int time =0;
 	private Table<Integer, Integer, Integer> tachoGraph= HashBasedTable.create();
+
+	public void startTrainController(){
+		Timer timer = null;
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				followSpeed();
+			}
+		}, 1000);
+	}
+
 
 	@Override
 	public void followSpeed() {
@@ -66,7 +80,7 @@ public class TrainControllerImpl implements TrainController {
 	//comment
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
-		this.step = joystickPosition;		
+		this.step = joystickPosition;
 	}
 
 }
