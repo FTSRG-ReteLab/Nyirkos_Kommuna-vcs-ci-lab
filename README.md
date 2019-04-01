@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/11H-IHJe4ZM6imNR-hpaj-RK12GzLsL64Qr9huHkl9_M/edit
+
 # Train Speed Controller
 
 This is a sample application for the verification laboratory.
